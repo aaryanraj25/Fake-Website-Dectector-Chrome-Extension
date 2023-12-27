@@ -3,9 +3,14 @@
 ![](./images/working.gif)
 
 
-#Problem Statement 5
 
-Problem Statement: Automated AI/ML System for Detecting and Mitigating Online Fraud
+
+
+
+
+# Introduction
+
+**Problem Statement:** Automated AI/ML System for Detecting and Mitigating Online Fraud
 
 Objective:
 
@@ -16,9 +21,6 @@ Ad Content Analysis: Implement NLP and image recognition techniques to evaluate 
 Customer Care Number Verification: Establish a database of verified customer care numbers and compare incoming numbers to identify potential scams.
 Real-time Detection: Enable real-time analysis of online content to prevent users from accessing fake or malicious websites.
 User Feedback Integration: Incorporate mechanisms for user feedback to enhance the system's accuracy and adapt to evolving fraudulent tactics.
-
-
-# Introduction
 
 **Sahi Hai** was made by keeping in the mind the regular internet user who has to go through many websites during his time on the internet and may fall under a trap of a malicious website who might want the user's information or want to introduce malware in their system. Our chrome extension helps the user to check a particular website whether it is safe for browsing or not we have used a pretrained ml model to do so.
 
