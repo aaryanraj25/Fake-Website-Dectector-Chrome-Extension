@@ -1,12 +1,3 @@
-# Sahi Hai - A Chrome Extension to detect Malicious Websites
- 
-![](./images/working.gif)
-
-
-
-
-
-
 
 # Introduction
 
