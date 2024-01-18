@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="popup.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+
+    
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 300px; /* Adjusted width for spacing */
+            background-color: #FFF;
+            color: black;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+            border-radius: 8px; /* Rounded corners */
+            overflow: hidden; /* Ensures the child elements do not overflow */
+            font-size: 15px;
+        }
+
+        .title {
+            background-color: #d41505;
+            color: white;
+            text-align: center;
+            padding: 15px; /* Increased padding */
+            font-size: 22px; /* Increased font size for better readability */
+            font-weight: bold; /* Increased font size for title */
+        }
+
+        .section {
+            padding: 10px;
+            text-align: center;
+        }
+
+        #site, .section input, .section button {
+            margin-bottom: 10px; /* Spacing between elements */
+            width: calc(100% - 20px); /* Full width minus padding */
+            box-sizing: border-box; /* Include padding and border in the element's width */
+        }
+
+        button {
+            border-radius: 20px;
+            border: 1px solid #1e1c66;
+            background-color: #1e1c66;
+            color: #FFFFFF;
+            font-size: 15px; /* Increased font size for better readability */
+            font-weight: bold;
+            padding: 12px;
+            letter-spacing: 1px;
+            transition: transform 80ms ease-in;
+            cursor: pointer; /* To indicate the button is clickable */
+            display: block; /* To take the full width */
+            margin: 10px auto; /* Center button horizontally */
+        }
+
+        button:active {
+            transform: scale(0.95); /* Slightly reduced scale for click effect */
+        }
+
+        button:hover {
+            color: #1e1c66;
+            background-color: #FFF;
+            border-color: #1e1c66;
+        }
+        
+        input[type="text"] {
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            padding: 12px;
+            font-size: 15px; /* Increased font size for better readability */
+        }
+        
+        #verifyResult, #analysisResult {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 4px;
+            word-wrap: break-word;
+        }
+
+        #div1 {
+  vertical-align: middle; 
+  line-height: 50px; 
+  text-align:center;
+  font-size:20px;
+  color: #0C5;
+  font-weight: bolder;
+}
+
+#div2 {
+  vertical-align: middle; 
+  line-height: 50px; 
+  text-align:center;
+  font-size:20px;
+  color:red;
+  font-weight: bolder;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">
+            <strong>Rajasthan Police</strong>
+        </div>
+
+        <div class="wrapper">
+            <div class="section">
+                <p>Know which site is safe or phishy</p>
+                <div id="site"></div>
+                <button class="button">Safe or Not?</button>
+                <div id="div1"></div>
+                <div id="div2"></div>
+            </div>
+
+            <div class="section">
+                <p>Verify Customer Care Number</p>
+                <input type="text" id="customerCareNumberInput" placeholder="Enter customer care number">
+                <button id="verifyNumberButton" class="button">Verify Number</button>
+                <div id="verifyResult"></div>
+            </div>
+            
+            
+
+            <div class="section">
+                <p>Current site safety status:</p>
+                <div id="siteSafetyStatus">Checking...</div>
+            </div>
+
+            <div class="section">
+                <p>Analyze Ad Content</p>
+                <button id="analyzeAdButton" class="button">Analyze Ad Content</button>
+                <div id="loadingIndicator" style="display:none;">Analyzing...</div>
+                <div id="analysisResult"></div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const verifyNumberButton = document.getElementById('verifyNumberButton');
+        
+        verifyNumberButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent any default form submission behavior
+            verifyCustomerCareNumber();
+        });
+    });
+    
+    function verifyCustomerCareNumber() {
+        const customerCareNumberInput = document.getElementById('customerCareNumberInput');
+        const verifyResult = document.getElementById('verifyResult');
+        const userInputNumber = customerCareNumberInput.value;
+    
+        console.log('Verifying number:', userInputNumber); // Log for debugging
+    
+        fetch('http://localhost:3000/api/verify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ phoneNumber: userInputNumber }),
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((result) => {
+            verifyResult.textContent = result.isPotentialScam ? 'Potential scam detected.' : 'Number is not a scam.';
+            verifyResult.style.color = result.isPotentialScam ? 'red' : 'green';
+            console.log('Verification result:', result); // Log for debugging
+        })
+        .catch((error) => {
+            console.error('Error during verification:', error);
+            verifyResult.textContent = 'Verification failed. Please try again.';
+            verifyResult.style.color = 'red';
+        });
+    }
+    </script>
+
+</html>

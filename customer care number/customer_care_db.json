@@ -1,0 +1,49 @@
+
+{
+    "verifiedNumbers": [
+      {
+        "companyName": "Rajasthan Police",
+        "phoneNumber": "01412712263",
+        "description": "Official customer care"
+      },
+
+      {
+        "companyName": "24 x 7 Guru .com",
+        "phoneNumber": "18004252425",
+        "description": "Official customer care"
+      },
+
+      {
+        "companyName": "5 Paisa",
+        "phoneNumber": "1800226555",
+        "description": "Official customer care"
+      },
+
+      {
+        "companyName": "99 Acres",
+        "phoneNumber": "18004199099",
+        "description": "Official customer care"
+      },
+
+
+      {
+        "companyName": "AO Smith",
+        "phoneNumber": "18001032468",
+        "description": "Official customer care"
+      },
+
+      {
+        "companyName": "AAA Teleshopping",
+        "phoneNumber": "1800115222",
+        "description": "Official customer care"
+      },
+
+      {
+        "companyName": "Akash Institute",
+        "phoneNumber": "18001022727",
+        "description": "Official customer care"
+      }
+      
+    ]
+  }
+  

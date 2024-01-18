@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Use flexbox for center alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
+  color: black;
+}
+
+.container {
+  width: 300px; /* Adjust width as needed */
+  background-color: #FFF;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow for depth */
+  border-radius: 8px; /* Optional: Rounds corners */
+  overflow: hidden; /* Ensures the child elements do not overflow */
+  font-size: 15px;
+  margin: 20px; /* Adds space around the container */
+}
+
+.title {
+  background-color: #d41505;
+  color: white;
+  text-align: center;
+  padding: 20px; /* Adjust padding to create more space */
+  font-weight: bold;
+}
+
+.info, .p1, .check {
+  padding: 20px; /* Increase padding to create more space */
+  background-color: white;
+  font-size: 20px;
+  margin-bottom: 20px; /* Adds space between sections */
+}
+
+#site, p, #div1, #div2 {
+  text-align: center; /* Ensure text is centered */
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid #1e1c66;
+  background-color: #1e1c66;
+  color: #FFFFFF;
+  font-size: 15px; /* Adjust font size if needed */
+  font-weight: bold;
+  padding: 12px 35px; /* Adjust padding to fit content */
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer; /* Indicates the button is clickable */
+  display: block; /* Ensure buttons are block level so they can be centered */
+  margin: 10px auto 20px; /* Center button horizontally and add space below */
+}
+
+button:active {
+  transform: scale(0.89);
+}
+
+button:focus {
+  outline: none;
+}
+
+.button:hover {
+  text-decoration: none;
+  color: #1e1c66;
+  border-color: #1e1c66;
+  background: #FFF;
+}
+
+button.ghost {
+  background-color: transparent;
+  border-color: #FFFFFF;
+}
