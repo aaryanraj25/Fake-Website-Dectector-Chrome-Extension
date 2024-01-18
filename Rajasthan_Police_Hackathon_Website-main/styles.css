@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header.header {
+    background-color: #4d88ff; /* Blue theme for header */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed; /* Fixed at the top */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure header is above other content */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container .logo {
+    max-width: 100px;
+    margin-right: 15px;
+}
+
+.logo-container h1 {
+    margin: 0;
+    font-size: 2rem; /* Larger font size for visibility */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    padding: 0 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ffdd00; /* Highlight color on hover */
+}
+
+header.header .logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header.header h1 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 10px;
+    font-size: 2rem; /* Larger font size for visibility */
+}
+
+footer.footer {
+    background-color: #ff4d4d; /* Red theme for footer */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed; /* Fixed at the bottom */
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+footer.footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.main-container {
+    padding-top: 60px; /* Add padding to account for fixed header */
+    padding-bottom: 60px; /* Add padding to account for fixed footer */
+    display: flex;
+    justify-content: space-around; /* Centers the content */
+    align-items: center;
+    min-height: calc(100% - 120px); /* Adjust height calculation for fixed header/footer */
+}
+.logo-container {
+    background-color: #fff;
+    padding-top: 100px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.logo-container .logo {
+    max-width: 100px;
+    margin-right: 15px;
+}
+
+.logo-container h1 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.buttons-container {
+    background-color: #fff;
+    padding: 20px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 20px;
+}
+
+.button {
+    padding: 15px 30px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: 80%;
+    max-width: 250px; /* Set max width for buttons */
+}
+
+.report-button {
+    background-color: #ff4d4d; /* Red theme for report button */
+}
+
+.feedback-button {
+    background-color: #4d88ff; /* Blue theme for feedback button */
+}
+
+.button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+/* Pop-up modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 5px; /* Optional: for rounded corners */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.success-message {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="url"],
+textarea,
+input[type="file"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    padding: 10px 15px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: #4d88ff; /* Blue theme */
+}
+
+input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.report-button {
+    background-color: #ff4d4d; /* Red theme for report button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Card-like shadow */
+    margin-bottom: 20px;
+}
+
+.feedback-button {
+    background-color: #280274; /* Blue theme for feedback button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Card-like shadow */
+}
+
+button {
+    padding: 15px 30px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* Smaller width on smaller screens */
+    }
+
+    button {
+        width: 90%; /* Full-width buttons on smaller screens */
+        margin: 10px auto; /* Center align buttons */
+        display: block; /* Stack buttons vertically */
+    }
+
+    /* Adjust font size and padding for smaller screens */
+    .modal-content h2, form label, input[type="submit"] {
+        font-size: 1rem; /* Adjust font size */
+        padding: 10px; /* Adjust padding */
+    }
+
+    form input[type="text"], 
+    form input[type="url"], 
+    form textarea,
+    form input[type="file"] {
+        font-size: 0.9rem; /* Smaller input fields */
+    }
+}
+
+/* Additional responsiveness for very small screens */
+@media screen and (max-width: 480px) {
+    .modal-content {
+        margin-top: 10%; /* Less margin on very small screens */
+    }
+
+    /* Further reduce font sizes for very small screens */
+    .modal-content h2, form label, input[type="submit"] {
+        font-size: 0.9rem;
+    }
+
+    form input[type="text"], 
+    form input[type="url"], 
+    form textarea,
+    form input[type="file"] {
+        font-size: 0.8rem; /* Even smaller input fields */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .logo-container, .buttons-container {
+        width: 100%;
+    }
+
+    .button {
+        width: 90%; /* Full width on smaller screens */
+    }
+}
+@media screen and (max-width: 768px) {
+    header.header h1, footer.footer p {
+        font-size: 0.9rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding-top: 80px; /* Increase padding for smaller screens */
+        padding-bottom: 80px;
+    }
+
+    header.header h1, footer.footer p {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+}
+@media screen and (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        padding-top: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        padding: 5px 0;
+    }
+}

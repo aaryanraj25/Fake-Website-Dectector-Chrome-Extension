@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fraud Reporting Website</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="nav-container">
+        <div class="logo-container">
+            <!-- Replace 'logo.png' with your actual logo image -->
+            <img src="raj-police.png" alt="Rajasthan Police" class="logo">
+            <h1>Rajasthan Police</h1>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#report-submission">Ad Content Analysis</a></li>
+                <li><a href="#feedback-submission">Feedback</a></li>
+                <li><a href="#contact">About Rajasthan Police</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    
+
+<div class="main-container">
+    <div class="logo-container">
+        <img src="raj-police.png" alt="Rajasthan Police" class="logo">
+        <h1>Rajasthan Police</h1>
+    </div>
+    
+    <div class="buttons-container">
+        <button id="reportBtn" class="button report-button">Submit a Report</button>
+        <button id="feedbackBtn" class="button feedback-button">Submit Feedback</button>
+    </div>
+</div>
+
+<!-- The Report Modal -->
+<div id="reportModal" class="modal">
+
+  <!-- Report Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Report</h2>
+    <form id="report-form">
+        <label for="website-url">Website URL:</label>
+        <input type="url" id="website-url" name="website-url" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="screenshot">Screenshot of the website:</label>
+        <input type="file" id="screenshot" name="screenshot" accept="image/*">
+
+        <label for="reporter-name">Your Name:</label>
+        <input type="text" id="reporter-name" name="reporter-name" required>
+
+        <label for="aadhar-number">Aadhar Number:</label>
+        <input type="text" id="aadhar-number" name="aadhar-number" required>
+
+        <input type="submit" value="Submit Report">
+    </form>
+  </div>
+</div>
+
+
+  
+
+<!-- The Feedback Modal -->
+<div id="feedbackModal" class="modal">
+
+  <!-- Feedback Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Submit Feedback</h2>
+    <form id="feedback-form">
+        <label for="feedback">Your Feedback:</label>
+        <textarea id="feedback" name="feedback" required></textarea>
+
+        <input type="submit" value="Submit Feedback">
+    </form>
+  </div>
+</div>
+
+<div id="successModal" class="modal">
+    <!-- Success Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Submission Successful</h2>
+      <p>Your report/feedback has been submitted successfully.</p>
+    </div>
+  </div>
+<div id="successMessage" class="success-message"></div>
+<script>
+// Get the modal elements
+var reportModal = document.getElementById('reportModal');
+var feedbackModal = document.getElementById('feedbackModal');
+
+// Get the button that opens the modal
+var reportBtn = document.getElementById("reportBtn");
+var feedbackBtn = document.getElementById("feedbackBtn");
+
+// Get the <span> element that closes the modal
+var spans = document.getElementsByClassName("close");
+
+// When the user clicks the button, open the modal 
+reportBtn.onclick = function() {
+  reportModal.style.display = "block";
+}
+feedbackBtn.onclick = function() {
+  feedbackModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+for (var i = 0; i < spans.length; i++) {
+  spans[i].onclick = function() {
+    reportModal.style.display = "none";
+    feedbackModal.style.display = "none";
+  }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == reportModal || event.target == feedbackModal) {
+    reportModal.style.display = "none";
+    feedbackModal.style.display = "none";
+  }
+}
+</script>
+<footer class="footer">
+    <p>&copy; 2024 Rajasthan Police. All rights reserved.</p>
+</footer>
+<script src="scripts.js"></script>
+</body>
+</html>
